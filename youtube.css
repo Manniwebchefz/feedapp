@@ -17,7 +17,16 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px;
 }
-
+.youtube-channel-btn {
+    display: flex;
+    margin: 0px;
+}
+.youtube-channel-btn button {
+    padding: 10px;
+    margin-left: auto;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
 .video-card {
     overflow: hidden;
     border-radius: 12px;

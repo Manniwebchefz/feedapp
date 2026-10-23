@@ -159,7 +159,9 @@ const YouTubeCard = () => {
     return (
         <main className="youtube-page">
             <h1>Latest YouTube Videos</h1>
-
+            <a className="youtube-channel-btn" href="https://www.youtube.com/@sweetsaltykitchen2197" target="_blank" rel="noopener noreferrer">
+                <button >Visit Sweet & Salty Kitchen Channel</button>
+            </a>
             {selectedVideo && (
                 <div className="video-player">
                     <button
