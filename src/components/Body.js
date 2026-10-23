@@ -71,9 +71,7 @@ return resListData.length === 0 ?(
                     />
                 ))}
         </div>       
-        <div className="youtube-list ">
-            <YouTubeCard />
-        </div>
+       
     </div>
  );
 };
