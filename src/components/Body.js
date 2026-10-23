@@ -61,9 +61,8 @@ return resListData.length === 0 ?(
            <button  className="filterbtn" 
            onClick={handleTopRated}>
             Top Rated </button>
-        
         </div>
-        <div className="total-items">Total items: {resListData.length}</div>
+        <div className="total-items">Total items: {searcResturent.length}</div>
         <div className="restaurant-list">
              {searcResturent.map((restaurant) => (
                     <ResaurentCard
