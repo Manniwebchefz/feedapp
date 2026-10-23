@@ -52,7 +52,7 @@ return resListData.length === 0 ?(
                 />
                 <button onClick={()=>{
                     const searcResturent = resListData.filter((res) => res.info.name.toLowerCase().includes(searchText.toLocaleLowerCase()) );
-                    setResListData(searcResturent);
+                    setSearcResturent(searcResturent);
                     setIsTopRated(true);
                 }}
                 >Search</button>
@@ -61,18 +61,11 @@ return resListData.length === 0 ?(
            <button  className="filterbtn" 
            onClick={handleTopRated}>
             Top Rated </button>
-            <button className="filter-btn"  disabled={!isTopRated}
-            onClick={() => {
-            setResListData(restData);
-               setSearchText("");  
-            setIsTopRated(false);   
-        }}
-            >
-                Reset</button>
+        
         </div>
         <div className="total-items">Total items: {resListData.length}</div>
         <div className="restaurant-list">
-             {resListData.map((restaurant) => (
+             {searcResturent.map((restaurant) => (
                     <ResaurentCard
                         key={restaurant.info.id}
                         restData={restaurant}
