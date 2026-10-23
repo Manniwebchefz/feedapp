@@ -32,7 +32,7 @@ const fetchdata =  async () =>{
 const handleTopRated = () => {
     const filteredList = resListData.filter((res) => res.info.avgRating > 4.3)
     setResListData(filteredList);   
-
+     setSearcResturent(filteredList);
     setIsTopRated(true);
 }
 
