@@ -1,6 +1,5 @@
 import { useState,useEffect } from "react";
 import ResaurentCard from "./ResaurentCard";
-import YouTubeCard from "./YouTubeCard";
 import Shimmer from "./Shimmer";
 
 const Body = () => {
@@ -10,13 +9,14 @@ const [restData, setResetData] = useState([]);
 const [searcResturent, setSearcResturent] = useState([]);
 const [searchText, setSearchText] = useState("");
 const [isTopRated, setIsTopRated] = useState(false);
+const {API_URL} = require("../utili/constant");
 
 useEffect(() => {
     fetchdata();
 }, []);
 
 const fetchdata =  async () =>{
-    const data = await fetch ("https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.73390&lng=76.78890");
+    const data = await fetch (API_URL);
     const json = await data.json();
 
     // Optional Chaining

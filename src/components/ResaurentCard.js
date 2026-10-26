@@ -1,4 +1,5 @@
 import { REST_IMG } from "../utili/constant";
+import { Link } from "react-router";
 
 const ResaurentCard = (props) => {
     const { restData } = props; 
@@ -12,7 +13,9 @@ const ResaurentCard = (props) => {
         <h4 className="resaurent-delivery">Delivery Time: {props.restData.info.sla?.slaString}</h4>
         <h4 className="resaurent-price">{props.restData.info.costForTwo}</h4>
         <h4 className="resaurent-rating">{props.restData.info.avgRating} ⭐ Stars</h4>
-        <a className="order-link" href={props.restData.cta.link+"?utm_source=manni&utm_medium=web&utm_campaign=manni_search"} target="_blank" rel="noopener noreferrer">Order Now</a>    
+        <Link className="order-link" to={`/restaurant/${props.restData.info.id}`} >
+            {props.restData.info.name} {"MENU"} 
+        </Link>
     </div>
 );
 }

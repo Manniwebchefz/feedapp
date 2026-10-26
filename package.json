@@ -6,8 +6,8 @@
   "author": "Manpreet Singh",
   "type": "commonjs",
   "scripts": {
-    "start" : "parcel index.html",
-    "build" : "parcel build index.html",
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "devDependencies": {
@@ -17,5 +17,8 @@
   },
   "browserlist": [
     "last 2 versions"
-  ]
+  ],
+  "dependencies": {
+    "react-router-dom": "^7.18.4"
+  }
 }
