@@ -27,6 +27,7 @@ const fetchdata =  async () =>{
     setResetData(jsondata);
 
     setSearcResturent(jsondata);
+    console.log("Restaurant List:", jsondata);
 };
 
 const handleTopRated = () => {

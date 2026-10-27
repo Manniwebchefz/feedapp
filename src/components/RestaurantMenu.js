@@ -12,16 +12,15 @@ const RestaurantMenu = () => {
 
     const fetchRestaurantMenu = async () => {
         try {
-            const response = await fetch(MENU_API + id);
+            const response = await fetch(MENU_API + id );
+            console.log("Restaurant Menu:", response);
             const json  = await response.json();
             setResInfo(json.data);
-            console.log("Restaurant Menu:", json.data);
         } catch (error) {
             console.error("Error fetching restaurant menu:", error);
         }
     };
 
-    console.log("Restaurant ID:", id); // Log the restaurant ID to the console
 
     return (
         <div className="restaurant-menu container">
