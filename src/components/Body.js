@@ -2,7 +2,8 @@ import { useState,useEffect } from "react";
 import ResaurentCard from "./ResaurentCard";
 import Shimmer from "./Shimmer";
 import useonlineStatus from "../utili/useOnlineStatus";
-import useOffline from "../utili/useOffline";
+
+import useOfflineContent from "../utili/useOfflineContent";
 
 const Body = () => {
 
@@ -57,7 +58,7 @@ const handleTopRated = () => {
 const onlineStatus = useonlineStatus();
 
 if(onlineStatus === false) 
-    return useOffline();
+    return useOfflineContent();
   
 return resListData.length === 0 ?(
         <Shimmer />

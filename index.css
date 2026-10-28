@@ -107,7 +107,10 @@ img.resaurent-image {
     border-radius: 5px;
     font-family: math;
 }
-
+.profile img {
+    width: 150px;
+    border-radius: 50%;
+}
 /* offline CSS */
 
 .offline-page {
