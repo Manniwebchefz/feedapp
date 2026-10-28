@@ -10,7 +10,6 @@ import Video from "./components/Video";
 import Error from "./components/Error";
 import Help from "./components/Help";
 import RestaurantMenu from "./components/RestaurantMenu";
-
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
 
 const Grocery = lazy(() => import("./components/Grocery"));
