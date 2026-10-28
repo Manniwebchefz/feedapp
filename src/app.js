@@ -1,6 +1,6 @@
 "use strict";
 
-import React from "react";
+import React, { lazy,Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -8,8 +8,13 @@ import Footer from "./components/Footer";
 import About from "./components/About";
 import Video from "./components/Video";
 import Error from "./components/Error";
+import Help from "./components/Help";
 import RestaurantMenu from "./components/RestaurantMenu";
+
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
+
+const Grocery = lazy(() => import("./components/Grocery"));
+
 
 const parent = React.createElement("div", { id: "parent" }, [
     React.createElement("div", { id: "child" },
@@ -56,6 +61,16 @@ const appRouter = createBrowserRouter([
             {
                 path: "/video",
                 element: <Video />,
+            },
+            {
+                path: "/help",
+                element: <Help />,
+            },
+            {
+                path: "/grocery",
+                element: <Suspense fallback="Loading...">
+                            <Grocery />
+                        </Suspense>,
             },
             {
                 path: "/restaurant/:id",

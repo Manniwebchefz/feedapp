@@ -13,7 +13,7 @@ const ResaurentCard = (props) => {
         <h4 className="resaurent-delivery">Delivery Time: {sla?.slaString}</h4>
         <h4 className="resaurent-price">{costForTwo}</h4>
         <h4 className="resaurent-rating">{avgRating} ⭐ Stars</h4>
-        <Link className="order-link" to={props?.restData?.cta?.link} >
+        <Link className="order-link" to={`/restaurant/${restData?.info?.id}`}>
             {name} {"MENU"} 
         </Link>
     </div>

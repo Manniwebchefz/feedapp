@@ -1,6 +1,7 @@
 import { useState,useEffect } from "react";
 import ResaurentCard from "./ResaurentCard";
 import Shimmer from "./Shimmer";
+import useonlineStatus from "../utili/useOnlineStatus";
 
 const Body = () => {
 
@@ -11,24 +12,40 @@ const [searchText, setSearchText] = useState("");
 const [isTopRated, setIsTopRated] = useState(false);
 const {API_URL} = require("../utili/constant");
 
+
+
 useEffect(() => {
-    fetchdata();
+    fetchData();
 }, []);
 
-const fetchdata =  async () =>{
-    const data = await fetch (API_URL);
-    const json = await data.json();
+    const fetchData = async () => {
+    try {
+        const data = await fetch(API_URL);
+        const json = await data.json();
 
-    // Optional Chaining
-    const jsondata = json.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+        // Get all cards from the API
+        const allCards = json?.data?.cards || [];
 
-    setResListData(jsondata);
-    
-    setResetData(jsondata);
+        // Extract restaurants from every card
+        const restaurantList = allCards.flatMap((card) => {
+        return (
+            card?.card?.card?.gridElements?.infoWithStyle?.restaurants ||
+            []
+        );
+        });
 
-    setSearcResturent(jsondata);
-    console.log("Restaurant List:", jsondata);
-};
+        console.log("All API Cards:", allCards);
+        console.log("All Restaurants:", restaurantList);
+
+        // Store restaurant data
+        setResListData(restaurantList);
+        setResetData(restaurantList);
+        setSearcResturent(restaurantList);
+
+    } catch (error) {
+        console.error("Error fetching restaurants:", error);
+    }
+    };
 
 const handleTopRated = () => {
     const filteredList = resListData.filter((res) => res.info.avgRating > 4.3)
@@ -36,7 +53,19 @@ const handleTopRated = () => {
      setSearcResturent(filteredList);
     setIsTopRated(true);
 }
+const onlineStatus = useonlineStatus();
 
+if(onlineStatus === false) 
+    return (
+        <div className="rest-container container">
+            <h1>
+                Looks like you're offline!! Please check your internet connection;
+            </h1>
+        </div>
+      
+    );
+
+  
 return resListData.length === 0 ?(
         <Shimmer />
 ) : (
@@ -58,19 +87,19 @@ return resListData.length === 0 ?(
                 }}
                 >Search</button>
             </div>
-            
+          
            <button  className="filterbtn" 
            onClick={handleTopRated}>
             Top Rated </button>
         </div>
         <div className="total-items">Total items: {searcResturent.length}</div>
         <div className="restaurant-list">
-             {searcResturent.map((restaurant) => (
-                    <ResaurentCard
-                        key={restaurant.info.id}
-                        restData={restaurant}
-                    />
-                ))}
+           {searcResturent.map((restaurant, index) => (
+                <ResaurentCard
+                    key={restaurant?.info?.id ?? index}
+                    restData={restaurant}
+                />
+            ))}
         </div>       
        
     </div>
