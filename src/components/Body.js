@@ -2,6 +2,7 @@ import { useState,useEffect } from "react";
 import ResaurentCard from "./ResaurentCard";
 import Shimmer from "./Shimmer";
 import useonlineStatus from "../utili/useOnlineStatus";
+import useOffline from "../utili/useOffline";
 
 const Body = () => {
 
@@ -56,15 +57,7 @@ const handleTopRated = () => {
 const onlineStatus = useonlineStatus();
 
 if(onlineStatus === false) 
-    return (
-        <div className="rest-container container">
-            <h1>
-                Looks like you're offline!! Please check your internet connection;
-            </h1>
-        </div>
-      
-    );
-
+    return useOffline();
   
 return resListData.length === 0 ?(
         <Shimmer />

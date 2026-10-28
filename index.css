@@ -107,6 +107,95 @@ img.resaurent-image {
     border-radius: 5px;
     font-family: math;
 }
+
+/* offline CSS */
+
+.offline-page {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: linear-gradient(135deg, #0b1220, #172b3f);
+    font-family: Arial, sans-serif;
+}
+
+.offline-card {
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+    padding: 42px 30px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+.wifi-icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 24px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #26374a;
+    font-size: 48px;
+}
+
+.offline-badge {
+    display: inline-block;
+    padding: 7px 13px;
+    border-radius: 20px;
+    background: rgba(239, 68, 68, 0.15);
+    color: #fb7185;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.offline-card h1 {
+    font-size: clamp(25px, 5vw, 34px);
+    margin: 22px 0 12px;
+}
+
+.offline-card p {
+    color: #a8b5c7;
+    line-height: 1.8;
+    margin-bottom: 28px;
+}
+
+.offline-card button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #16a34a, #22c55e);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.offline-card button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px #16a34a44;
+}
+
+.offline-card button span {
+    font-size: 22px;
+    margin-right: 8px;
+}
+
+.offline-card small {
+    display: block;
+    margin-top: 22px;
+    color: #8090a5;
+}
+
+
+/* offline CSS */
 .footer {
     text-align: center;
     width: 100%;
