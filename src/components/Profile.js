@@ -31,7 +31,6 @@ class Profile extends Component {
             <div className="profile">
                 <h2>Team</h2>   
                 <p>Name: {name}</p>
-                <img src={avatar_url} alt={name} />
             </div>
         );
     }
