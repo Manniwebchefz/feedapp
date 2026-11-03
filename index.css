@@ -1,10 +1,5 @@
-* {
-    box-sizing: border-box;
-}
-body {
-    margin: 0;
-    padding: 0;
-}
+@import "tailwindcss";
+
 .header {
     display: flex;
     width: 100%;
@@ -14,33 +9,6 @@ body {
     max-width: 1300px;
     margin-left: auto;
     margin-right: auto;
-}
-.logo {
-    width: 20%;
-    max-width: 80px;
-    margin-top: 20px;
-}
-.logo img {
-    max-width: 100%;
-    height: auto;
-}
-.nav-items {
-    width: auto;
-    text-align: right;
-    margin-left: auto;
-}
-.nav-items >ul > li {
-    padding: 26px;
-    list-style: none;
-    cursor: pointer;
-}
-.nav-items >ul {
-    display: flex;
-}
-.login-btn {
-    padding: 0px 20px;
-    cursor: pointer;
-    width: 100px;
 }
 .search input[type="text"] {
     width: 100%;
